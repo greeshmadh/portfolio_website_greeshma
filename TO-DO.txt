@@ -1,0 +1,31 @@
+
+
+
+
+
+
+
+
+9. Deploy to vercel 
+
+11. Add website link to resume 
+14. Convert to these sections
+15. Responsiveness 
+
+
+
+
+
+
+DONE:- 
+1. Add line dots 
+2. See spacing of dots in last page
+3. Add text about and intro and projects
+4. Add proj imgs
+5. Add gradient to last page 
+7. Add more icons in the last and first page 
+10. Add linkedin link
+12. About me hover change
+6. Last page second box more opacity and width - cancelled
+8. Check the previous to-do 
+13. Add skills

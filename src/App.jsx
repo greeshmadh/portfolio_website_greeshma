@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Download, Italic } from 'lucide-react';
 import profilePic from "./assets/profile.jpg";
-import AP from "./assets/AP1.jpg";
+import AP from "./assets/ap1.jpg";
 import ELT from "./assets/elt.png";
 import meeting from "./assets/meeting.jfif";
 import { SiGithub, SiLeetcode, SiLinkedin} from "react-icons/si";

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Download, Italic } from 'lucide-react';
 import profilePic from "../assets/profile.jpg";
 
@@ -78,7 +78,30 @@ function HeroSection() {
     </svg>
   );
 
+  const skillsRef = useRef(null);
+
+  useEffect(() => {
+  const handleClickOutside = (event) => {
+    if (
+      skillsRef.current &&
+      !skillsRef.current.contains(event.target)
+    ) {
+      setShowSkills(false);
+    }
+  };
+
+  if (showSkills) {
+    document.addEventListener("mousedown", handleClickOutside);
+  }
+
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, [showSkills]);
+
+
   return (
+    
     <section className="h-screen flex flex-col relative snap-start">
       <div className="absolute top-0 left-0 right-0 flex justify-between items-start p-6 z-10">
         <button 
@@ -99,6 +122,7 @@ function HeroSection() {
         
         <button
             onClick={() => setShowSkills(!showSkills)}
+            ref={skillsRef}
             className="
                 absolute
                 top-6

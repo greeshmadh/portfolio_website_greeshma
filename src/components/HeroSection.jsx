@@ -79,15 +79,18 @@ function HeroSection() {
   );
 
   const skillsRef = useRef(null);
+  const skillsBtnRef = useRef(null);
 
   useEffect(() => {
   const handleClickOutside = (event) => {
-    if (
-      skillsRef.current &&
-      !skillsRef.current.contains(event.target)
-    ) {
-      setShowSkills(false);
-    }
+    // if click is inside dropdown → do nothing
+    if (skillsRef.current?.contains(event.target)) return;
+
+    // if click is on Skills button → do nothing
+    if (skillsBtnRef.current?.contains(event.target)) return;
+
+    // otherwise close
+    setShowSkills(false);
   };
 
   if (showSkills) {
@@ -98,6 +101,7 @@ function HeroSection() {
     document.removeEventListener("mousedown", handleClickOutside);
   };
 }, [showSkills]);
+
 
 
   return (
@@ -122,7 +126,7 @@ function HeroSection() {
         
         <button
             onClick={() => setShowSkills(!showSkills)}
-            ref={skillsRef}
+            ref={skillsBtnRef}
             className="
                 absolute
                 top-6
@@ -145,6 +149,7 @@ function HeroSection() {
 
         {showSkills && (
             <div
+            ref={skillsRef}
                 className="
                 absolute
                 top-[72px]

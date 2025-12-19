@@ -1,17 +1,7 @@
-
-
-
-
-
-
-
-
-9. Deploy to vercel 
-
 11. Add website link to resume 
 14. Convert to these sections
 15. Responsiveness 
-
+16. skills button adjust 
 
 
 
@@ -29,3 +19,4 @@ DONE:-
 6. Last page second box more opacity and width - cancelled
 8. Check the previous to-do 
 13. Add skills
+9. Deploy to vercel 

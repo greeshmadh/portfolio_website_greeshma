@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import AP from "C:/Users/Admin/Documents/GREESHMA/Portfolio/portfolio/src/assets//ap1.jpg";
-import ELT from "C:/Users/Admin/Documents/GREESHMA/Portfolio/portfolio/src/assets/elt.png";
-import meeting from "C:/Users/Admin/Documents/GREESHMA/Portfolio/portfolio/src/assets/Meeting.jfif";
+import AP from "../assets/ap1.jpg";
+import ELT from "../assets/elt.png";
+import meeting from "../assets/Meeting.jfif";
 
 function ProjectSection() {
   const projects = [

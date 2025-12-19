@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Download, Italic } from 'lucide-react';
-import profilePic from "C:/Users/Admin/Documents/GREESHMA/Portfolio/portfolio/src/assets/profile.jpg";
+import profilePic from "../assets/profile.jpg";
 
 function HeroSection() {
   const [showSkills, setShowSkills] = React.useState(false);

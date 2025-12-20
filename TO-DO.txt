@@ -1,4 +1,4 @@
-11. Add website link to resume 
+
 
 
 
@@ -24,3 +24,4 @@ DONE:-
 16. skills button adjust 
 15. Responsiveness 
 17. align hero page buttons in mobile view
+11. Add website link to resume 

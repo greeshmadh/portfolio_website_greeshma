@@ -357,60 +357,85 @@ function HeroSection() {
   return (
     <section className="h-screen flex flex-col relative snap-start">
       {/* Navigation */}
-      <div className="absolute top-0 left-0 right-0 flex flex-col sm:flex-row justify-between items-start gap-2 sm:gap-0 p-3 sm:p-6 z-10">
-        <button 
-          onClick={scrollToAbout}
-          className="px-4 sm:px-6 py-2 sm:py-3 bg-[#456882] text-white text-sm sm:text-lg font-semibold rounded hover:bg-[#527A97] transition-colors w-full sm:w-auto"
-        >
-          About me
-        </button>
-        
-        <button 
-          onClick={downloadResume}
-          className="px-4 sm:px-6 py-2 sm:py-3 bg-[#E3E3E3] text-gray-800 text-sm sm:text-lg font-semibold rounded hover:bg-gray-300 transition-colors flex items-center justify-center gap-2 w-full sm:w-auto order-3 sm:order-2"
-        >
-          <span className="hidden sm:inline">Download Resume</span>
-          <span className="sm:hidden">Resume</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
-          </svg>
-        </button>
-        
-        <button
-          onClick={() => setShowSkills(!showSkills)}
-          ref={skillsBtnRef}
-          className="px-4 sm:px-5 py-2 sm:py-3 bg-[#234C6A] text-white text-sm sm:text-lg rounded-lg hover:bg-[#456882] shadow-lg transition-all w-full sm:w-auto sm:absolute sm:top-6 sm:left-1/2 sm:translate-x-[10px] order-2 sm:order-3"
-        >
-          Skills
-        </button>
+<div className="absolute top-0 left-0 right-0 p-3 sm:p-6 z-10">
+  <div className="flex justify-between items-start">
+    {/* Left - About Me Button */}
+    <button 
+      onClick={scrollToAbout}
+      className="px-4 sm:px-6 py-2 sm:py-3 bg-[#456882] text-white text-sm sm:text-lg font-semibold rounded hover:bg-[#527A97] transition-colors"
+    >
+      About me
+    </button>
+    
+    {/* Right - Skills & Download Buttons (mobile only) */}
+    <div className="flex gap-2 items-start md:hidden">
+      <button
+        onClick={() => setShowSkills(!showSkills)}
+        className="px-3 py-2 bg-[#234C6A] text-white text-sm rounded-lg hover:bg-[#456882] shadow-lg transition-all whitespace-nowrap"
+      >
+        Skills
+      </button>
+      
+      <button 
+        onClick={downloadResume}
+        className="px-3 py-2 bg-[#E3E3E3] text-gray-800 text-sm font-semibold rounded hover:bg-gray-300 transition-colors flex items-center gap-1 whitespace-nowrap"
+      >
+        <span>Resume</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+      </button>
+    </div>
 
-        {showSkills && (
-          <div
-            ref={skillsRef}
-            className="fixed sm:absolute top-[140px] sm:top-[72px] left-4 right-4 sm:left-1/2 sm:right-auto sm:translate-x-[30px] w-auto sm:w-72 p-5 rounded-xl shadow-2xl border bg-white/20 backdrop-blur-xl border-white/30 z-20"
-          >
-            <h3 className="text-lg sm:text-xl font-bold text-[#1B3C53] mb-3">My Skills</h3>
-            <ul className="text-[#1B3C53] space-y-1 font-medium text-sm sm:text-base">
-              <li>• Python</li>
-              <li>• Cloud Computing Basics</li>
-              <li>• Java</li>
-              <li>• Machine Learning</li>
-              <li>• Docker</li>
-              <li>• Apache Kafka & Spark</li>
-              <li>• Flask</li>
-              <li>• MySQL</li>
-              <li>• JS & React</li>
-              <li>• Git/GitHub</li>
-            </ul>
-            <button
-              onClick={() => setShowSkills(false)}
-              className="mt-4 px-4 py-2 bg-[#456882] text-white rounded-md hover:bg-[#234C6A] w-full sm:w-auto"
-            >
-              Close
-            </button>
-          </div>
-        )}
-      </div>
+    {/* Right - Download Button (desktop only) */}
+    <button 
+      onClick={downloadResume}
+      className="hidden md:flex px-6 py-3 bg-[#E3E3E3] text-gray-800 text-lg font-semibold rounded hover:bg-gray-300 transition-colors items-center gap-2"
+    >
+      Download Resume
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+      </svg>
+    </button>
+  </div>
+
+  {/* Center - Skills Button (desktop only) */}
+  <button
+    onClick={() => setShowSkills(!showSkills)}
+    ref={skillsBtnRef}
+    className="hidden md:block absolute top-6 left-1/2 translate-x-[10px] px-5 py-3 bg-[#234C6A] text-white text-lg rounded-lg hover:bg-[#456882] shadow-lg transition-all"
+  >
+    Skills
+  </button>
+
+  {/* Skills Popup */}
+  {showSkills && (
+    <div
+      ref={skillsRef}
+      className="fixed md:absolute top-16 right-3 md:top-[72px] md:left-1/2 md:translate-x-[30px] md:right-auto w-64 md:w-72 p-5 rounded-xl shadow-2xl border bg-white/20 backdrop-blur-xl border-white/30 z-20"
+    >
+      <h3 className="text-lg sm:text-xl font-bold text-[#1B3C53] mb-3">My Skills</h3>
+      <ul className="text-[#1B3C53] space-y-1 font-medium text-sm sm:text-base">
+        <li>• Python</li>
+        <li>• Cloud Computing Basics</li>
+        <li>• Java</li>
+        <li>• Machine Learning</li>
+        <li>• Docker</li>
+        <li>• Apache Kafka & Spark</li>
+        <li>• Flask</li>
+        <li>• MySQL</li>
+        <li>• JS & React</li>
+        <li>• Git/GitHub</li>
+      </ul>
+      <button
+        onClick={() => setShowSkills(false)}
+        className="mt-4 px-4 py-2 bg-[#456882] text-white rounded-md hover:bg-[#234C6A] w-full"
+      >
+        Close
+      </button>
+    </div>
+  )}
+</div>
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col md:flex-row mt-24 sm:mt-0">

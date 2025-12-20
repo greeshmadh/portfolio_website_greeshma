@@ -1,7 +1,7 @@
 11. Add website link to resume 
-14. Convert to these sections
-15. Responsiveness 
-16. skills button adjust 
+
+
+
 
 
 
@@ -20,3 +20,7 @@ DONE:-
 8. Check the previous to-do 
 13. Add skills
 9. Deploy to vercel 
+14. Convert to these sections
+16. skills button adjust 
+15. Responsiveness 
+17. align hero page buttons in mobile view
